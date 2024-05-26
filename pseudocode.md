@@ -50,35 +50,44 @@ set computer score to 0
 
 ## PLAY A SINGLE ROUND 
 
+initialise outcome variable
+set outcome variable to an empty string
+
 if user choice variable is "rock" then
     if computer choice variable is "rock" then 
-    exit without effect
+    set outcome variable to 'draw'
 
     else if computer choice variable is "paper" then
     increment computer score variable by 1 
+    set outcome variable to 'lose'
 
     else then
     increment user score variable by 1
+    set outcome variable to 'win'
 
 else if user choice variable is "paper" then 
     if computer choice variable is "rock" then 
     increment user score variable by 1
+    set outcome variable to 'win'
 
     else if computer choice variable is "paper" then
-    exit without effect
+    set outcome variable to 'draw'
 
     else then
     increment computer score variable by 1
+    set outcome variable to 'lose'
 
 else
     if computer choice variable is "rock" then 
     increment computer score variable by 1
+    set outcome variable to 'lose'
 
     else if computer choice variable is "paper" then
     increment user score variable by 1 
+    set outcome variable to 'win'
 
     else then
-    exit without effect
+    set outcome variable to 'draw'
 
 ## PLAY ENTIRE GAME
 
