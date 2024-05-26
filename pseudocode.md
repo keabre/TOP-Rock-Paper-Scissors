@@ -27,7 +27,8 @@ prompt user to enter a word
 set user guess variable to this word
 
 while user guess variable is not "rock", "paper", or "scissors" then
-prompt user to enter a word
+display an error message about invalid word
+prompt user to enter a word again
 set user guess variable to this word
 
 if user guess variable is "rock" then
