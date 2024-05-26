@@ -95,7 +95,9 @@ initialise counter variable
 set counter variable to 0
 
 while counter variable is less than or equal to 5 then
-do:(PLAY A SINGLE ROUND)
+(GET COMPUTER CHOICE)
+(GET USER CHOICE)
+(PLAY A SINGLE ROUND)
 increment counter variable by 1
 
 if user score variable is greater than computer score variable then
