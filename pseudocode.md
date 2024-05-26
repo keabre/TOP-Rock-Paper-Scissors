@@ -19,26 +19,27 @@ within function ->
 
 ## GET USER CHOICE
 
-initialise user choice variable
+initialise user choice variable (globally)
 set user choice variable to empty string
 
-initialise user guess variable
-prompt user to enter a word
-set user guess variable to this word
+within function -> 
+    initialise user guess variable
+    prompt user to enter a word
+    set user guess variable to this word
 
-while user guess variable is not "rock", "paper", or "scissors" then
-display an error message about invalid word
-prompt user to enter a word again
-set user guess variable to this word
+    while user guess variable is not "rock", "paper", or "scissors" then
+    display an error message about invalid word
+    prompt user to enter a word again
+    set user guess variable to this word
 
-if user guess variable is "rock" then
-set user choice variable to "rock"
+    if user guess variable is "rock" then
+    set user choice variable to "rock"
 
-else if user guess variable is "paper" then
-set user choice variable to "paper"
+    else if user guess variable is "paper" then
+    set user choice variable to "paper"
 
-else then
-set user choice variable to "scissors"
+    else then
+    set user choice variable to "scissors"
 
 
 ## PLAYER SCORE VARIABLES
