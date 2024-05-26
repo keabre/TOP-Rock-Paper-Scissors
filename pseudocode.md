@@ -1,20 +1,21 @@
 ## GET COMPUTER CHOICE
 
-initialise computer choice variable
+initialise computer choice variable (globally)
 set computer choice variable to empty string
 
-initialise random number variable
-generate random number between 1 and 3
-set random number variable to generated random number
+within function -> 
+    initialise random number variable
+    generate random number between 1 and 3
+    set random number variable to generated random number
 
-if random number is 1 then
-set computer choice variable to "rock"
+    if random number is 1 then
+    set computer choice variable to "rock"
 
-else if random number is 2 then
-set computer choice variable to "paper"
+    else if random number is 2 then
+    set computer choice variable to "paper"
 
-else then
-set computer choice variable to "scissors"
+    else then
+    set computer choice variable to "scissors"
 
 ## GET USER CHOICE
 
