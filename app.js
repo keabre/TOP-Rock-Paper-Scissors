@@ -1,9 +1,7 @@
 // GET COMPUTER CHOICE
 
-let computer_choice = ''
-
 function getComputerChoice() {
-    
+    let computer_choice = ''
     let random_number
     random_number = Math.floor(Math.random() * 3) + 1
     
@@ -14,13 +12,14 @@ function getComputerChoice() {
     } else {
         computer_choice = "scissors"
     }
+
+    return computer_choice
 }
 
 // GET USER CHOICE
 
-let user_choice = ''
-
 function getUserChoice() {
+    let user_choice = ''
     let user_guess = prompt("Enter 'rock', 'paper', or 'scissors': ")
 
     while (
@@ -38,6 +37,8 @@ function getUserChoice() {
     } else {
         user_choice = 'scissors'
     }
+
+    return user_choice
 }
 
 // PLAYER SCORE VARIABLES  
@@ -49,12 +50,12 @@ let computer_score = 0
 // PLAY SINGLE ROUND
 
 
-function playSingleRound() {
+function playSingleRound(user, computer) {
     let outcome = ''
-    if (user_choice === "rock") {
-        if (computer_choice === "rock") {
+    if (user === "rock") {
+        if (computer === "rock") {
             outcome = 'draw'
-        } else if (computer_choice === "paper") {
+        } else if (computer === "paper") {
             computer_score++
             outcome = 'lose'
         } else {
@@ -62,21 +63,21 @@ function playSingleRound() {
             outcome = 'win'
         }
 
-    } else if (user_choice === "paper") {
-        if (computer_choice === "rock") {
+    } else if (user === "paper") {
+        if (computer === "rock") {
             user_score++
             outcome = 'win'
-        } else if (computer_choice === "paper") {
+        } else if (computer === "paper") {
             outcome = 'draw'
         } else {
             computer_score++
             outcome = 'lose'
         }
     } else {
-        if (computer_choice === "rock") {
+        if (computer === "rock") {
             computer_score++
             outcome = 'lose'
-        } else if (computer_choice === "paper") {
+        } else if (computer === "paper") {
             user_score++
             outcome = 'win'
         } else {
@@ -84,7 +85,7 @@ function playSingleRound() {
         }
     }
 
-    console.log(`You chose: ${user_choice}\nThe computer chose: ${computer_choice}\n`)
+    console.log(`You chose: ${user}\nThe computer chose: ${computer}\n`)
 
     if (outcome === 'win') {
         console.log("You win!")
@@ -97,6 +98,4 @@ function playSingleRound() {
     console.log(`Your score: ${user_score}\nComputer score: ${computer_score}`)
 }
 
-getComputerChoice()
-getUserChoice()
-playSingleRound()
+playSingleRound(getUserChoice(), getComputerChoice())

@@ -1,9 +1,9 @@
 ## GET COMPUTER CHOICE
 
-initialise computer choice variable (globally)
-set computer choice variable to empty string
-
 within function -> 
+    initialise computer choice variable
+    set computer choice variable to empty string
+
     initialise random number variable
     generate random number between 1 and 3
     set random number variable to generated random number
@@ -19,10 +19,10 @@ within function ->
 
 ## GET USER CHOICE
 
-initialise user choice variable (globally)
-set user choice variable to empty string
-
 within function -> 
+    initialise user choice variable
+    set user choice variable to empty string
+
     initialise user guess variable
     prompt user to enter a word
     set user guess variable to this word
@@ -52,44 +52,56 @@ set computer score to 0
 
 ## PLAY A SINGLE ROUND 
 
-initialise outcome variable
-set outcome variable to an empty string
+within function that accepts two parameters
+(the user choice function and the computer choice function) ->
+    initialise outcome variable
+    set outcome variable to an empty string
 
-if user choice variable is "rock" then
-    if computer choice variable is "rock" then 
-    set outcome variable to 'draw'
+    if user choice from parameter is "rock" then
+        if computer choice from parameter is "rock" then 
+        set outcome variable to 'draw'
 
-    else if computer choice variable is "paper" then
-    increment computer score variable by 1 
-    set outcome variable to 'lose'
+        else if computer choice from parameter is "paper" then
+        increment computer score variable by 1 
+        set outcome variable to 'lose'
 
+        else then
+        increment user score variable by 1
+        set outcome variable to 'win'
+
+    else if user choice from parameter is "paper" then 
+        if computer choice from parameter is "rock" then 
+        increment user score variable by 1
+        set outcome variable to 'win'
+
+        else if computer choice from parameter is "paper" then
+        set outcome variable to 'draw'
+
+        else then
+        increment computer score variable by 1
+        set outcome variable to 'lose'
+
+    else
+        if computer choice from parameter is "rock" then 
+        increment computer score variable by 1
+        set outcome variable to 'lose'
+
+        else if computer choice from parameter is "paper" then
+        increment user score variable by 1 
+        set outcome variable to 'win'
+
+        else then
+        set outcome variable to 'draw'
+
+    if outcome variable is "win" then
+    log "You win!"
+    else if outcome variable is "lose" then
+    log "Computer wins!"
     else then
-    increment user score variable by 1
-    set outcome variable to 'win'
+    log "It's a draw!
 
-else if user choice variable is "paper" then 
-    if computer choice variable is "rock" then 
-    increment user score variable by 1
-    set outcome variable to 'win'
-
-    else if computer choice variable is "paper" then
-    set outcome variable to 'draw'
-
-    else then
-    increment computer score variable by 1
-    set outcome variable to 'lose'
-
-else
-    if computer choice variable is "rock" then 
-    increment computer score variable by 1
-    set outcome variable to 'lose'
-
-    else if computer choice variable is "paper" then
-    increment user score variable by 1 
-    set outcome variable to 'win'
-
-    else then
-    set outcome variable to 'draw'
+    log "Your score is" user score variable
+    log "Computer score is" computer score variable
 
 ## PLAY ENTIRE GAME
 
