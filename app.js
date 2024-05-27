@@ -42,8 +42,11 @@ function getUserChoice() {
         if (user_guess === 'q') {
             user_choice = 'quit'
             return user_choice
+        } else if (user_guess === null) {
+            user_guess = prompt("If you want to quit the program, please enter 'q'.\nIf not, make sure to enter 'rock', 'paper', or 'scissors'")
+        } else {
+            user_guess = prompt(`'${user_guess}' is not a valid input. Enter 'rock', 'paper', or 'scissors'\nOr enter 'q' to quit: `)
         }
-        user_guess = prompt(`'${user_guess}' is not a valid input. Enter 'rock', 'paper', or 'scissors'\nOr enter 'q' to quit: `)
     }
 
     if (user_guess === 'rock') {
