@@ -1,3 +1,15 @@
+// IMPLEMENT FUNCTION FOR CHECK QUIT
+
+let isQuit = false
+
+function checkQuit(user_input) {
+    if (user_input === 'quit') {
+        return true
+    } else {
+        return false
+    }
+}
+
 // GET COMPUTER CHOICE
 
 function getComputerChoice() {
@@ -20,14 +32,18 @@ function getComputerChoice() {
 
 function getUserChoice() {
     let user_choice = ''
-    let user_guess = prompt("Enter 'rock', 'paper', or 'scissors': ")
+    let user_guess = prompt("Enter 'rock', 'paper', or 'scissors'\nOr enter 'q' to quit: ")
 
     while (
         user_guess !== "rock" &&
         user_guess !== "paper" &&
         user_guess !== "scissors"
     ) {
-        user_guess = prompt(`'${user_guess}' is not a valid input. Enter 'rock', 'paper', or 'scissors': `)
+        if (user_guess === 'q') {
+            user_choice = 'quit'
+            return user_choice
+        }
+        user_guess = prompt(`'${user_guess}' is not a valid input. Enter 'rock', 'paper', or 'scissors'\nOr enter 'q' to quit: `)
     }
 
     if (user_guess === 'rock') {
@@ -51,6 +67,14 @@ let computer_score = 0
 
 
 function playSingleRound(user, computer) {
+
+    if (checkQuit(user) === true) {
+        console.log("Thank you for playing!")
+        console.log("Quitting game...")
+        isQuit = true
+        return
+    }
+
     let outcome = ''
     if (user === "rock") {
         if (computer === "rock") {
@@ -104,6 +128,10 @@ function playGame() {
     let counter = 0;
 
     while (counter < 5) {
+        if (isQuit === true) {
+            return
+        }
+
         playSingleRound(getUserChoice(), getComputerChoice())
         counter++
     }
