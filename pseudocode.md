@@ -105,18 +105,20 @@ within function that accepts two parameters
 
 ## PLAY ENTIRE GAME
 
-initialise counter variable
-set counter variable to 0
+within function -> 
+    initialise counter variable
+    set counter variable to 0
 
-while counter variable is less than or equal to 5 then
-(GET COMPUTER CHOICE)
-(GET USER CHOICE)
-(PLAY A SINGLE ROUND)
-increment counter variable by 1
+    while counter variable is less than 5 then
+    (PLAY A SINGLE ROUND)
+    increment counter variable by 1
 
-if user score variable is greater than computer score variable then
-display the text "You win! Congratulations!"
+    if user score variable is greater than computer score variable then
+    display the text "You win! Congratulations!"
 
-else then
-display the text "you lose! Better luck next time!"
+    else if computer score variable is greater than user score variable then
+    display the text "You lose! Better luck next time!"
+
+    else then
+    display the text "It's a draw! No winners today!"
 

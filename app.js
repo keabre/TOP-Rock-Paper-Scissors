@@ -98,4 +98,28 @@ function playSingleRound(user, computer) {
     console.log(`Your score: ${user_score}\nComputer score: ${computer_score}`)
 }
 
-playSingleRound(getUserChoice(), getComputerChoice())
+// PLAY ENTIRE GAME
+
+function playGame() {
+    let counter = 0;
+
+    while (counter < 5) {
+        playSingleRound(getUserChoice(), getComputerChoice())
+        counter++
+    }
+
+    console.log("Thank you for playing!")
+    console.log("The final scores are: ")
+    console.log(`Your score: ${user_score}`)
+    console.log(`Computer score: ${computer_score}`)
+
+    if (user_score > computer_score) {
+        console.log("You win! Congratulations")
+    } else if (computer_score > user_score) {
+        console.log("You lose! Better luck next time!")
+    } else {
+        console.log("It's a draw! No winners today!")
+    }
+}
+
+playGame()
