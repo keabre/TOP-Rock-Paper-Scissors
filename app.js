@@ -39,3 +39,9 @@ function getUserChoice() {
         user_choice = 'scissors'
     }
 }
+
+// PLAYER SCORE VARIABLES  
+
+let user_score = 0
+
+let computer_score = 0
