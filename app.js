@@ -45,3 +45,58 @@ function getUserChoice() {
 let user_score = 0
 
 let computer_score = 0
+
+// PLAY SINGLE ROUND
+
+
+function playSingleRound() {
+    let outcome = ''
+    if (user_choice === "rock") {
+        if (computer_choice === "rock") {
+            outcome = 'draw'
+        } else if (computer_choice === "paper") {
+            computer_score++
+            outcome = 'lose'
+        } else {
+            user_score++
+            outcome = 'win'
+        }
+
+    } else if (user_choice === "paper") {
+        if (computer_choice === "rock") {
+            user_score++
+            outcome = 'win'
+        } else if (computer_choice === "paper") {
+            outcome = 'draw'
+        } else {
+            computer_score++
+            outcome = 'lose'
+        }
+    } else {
+        if (computer_choice === "rock") {
+            computer_score++
+            outcome = 'lose'
+        } else if (computer_choice === "paper") {
+            user_score++
+            outcome = 'win'
+        } else {
+            outcome = 'draw'
+        }
+    }
+
+    console.log(`You chose: ${user_choice}\nThe computer chose: ${computer_choice}\n`)
+
+    if (outcome === 'win') {
+        console.log("You win!")
+    } else if (outcome === 'lose') {
+        console.log("Computer wins!")
+    } else {
+        console.log("It's a draw!")
+    }
+
+    console.log(`Your score: ${user_score}\nComputer score: ${computer_score}`)
+}
+
+getComputerChoice()
+getUserChoice()
+playSingleRound()
