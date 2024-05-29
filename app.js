@@ -1,11 +1,21 @@
 // DECLARING VARIABLES FOR ELEMENT CONTAINERS
 
+const rockBtn = document.createElement('button')
+const paperBtn = document.createElement('button')
+const scissorsBtn = document.createElement('button')
+
 const userComputerChoicePara = document.createElement('p')
 const userComputerScorePara = document.createElement('p')
 const roundResultPara = document.createElement('p')
 
 const buttonContainer = document.querySelector('#button-container')
 const resultsContainer = document.querySelector('#results')
+
+// APPEND ELEMENTS TO CONTAINERS
+
+resultsContainer.appendChild(userComputerChoicePara)
+resultsContainer.appendChild(roundResultPara)
+resultsContainer.appendChild(userComputerScorePara)
 
 // IMPLEMENT FUNCTION FOR CHECK QUIT
 
@@ -166,19 +176,15 @@ function playSingleRound(user, computer) {
 
 // REVISITING ROCK PAPER SCISSORS LESSON
 
-const rockBtn = document.createElement('button')
-const paperBtn = document.createElement('button')
-const scissorsBtn = document.createElement('button')
-
 const buttonsList = [rockBtn, paperBtn, scissorsBtn]
 const choiceNames = ['rock', 'paper', 'scissors']
+let currentChoice = ''
 
 buttonsList.forEach((button, i) => {
     button.setAttribute('name', choiceNames[i])
     button.textContent = choiceNames[i]
-    button.addEventListener('click', onButtonPress(choiceNames[i]))
+    button.addEventListener('click', () => {
+        playSingleRound(choiceNames[i], getComputerChoice())
+    })
+    buttonContainer.appendChild(button)
 })
-
-function onButtonPress(choiceName) {
-    playSingleRound(choiceName, getComputerChoice())
-}
