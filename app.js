@@ -10,6 +10,7 @@ const roundResultPara = document.createElement('p')
 
 const buttonContainer = document.querySelector('#button-container')
 const resultsContainer = document.querySelector('#results')
+const finalResultContainer = document.querySelector('#overall-result-container')
 
 // APPEND ELEMENTS TO CONTAINERS
 
@@ -81,6 +82,7 @@ function playSingleRound(user, computer) {
                 console.log(gameCounter)
             })
         })
+        displayEndGameMessage()
         return
     }
 
@@ -130,6 +132,29 @@ function playSingleRound(user, computer) {
 
     userComputerScorePara.textContent = `Your score: ${user_score}\nComputer score: ${computer_score}`
 }
+
+function displayEndGameMessage() {
+    resultsContainer.textContent = `
+    Thank you for playing!\n                             
+    The final scores are:\n\n                             
+    Your score: ${user_score}\n                           
+    Computer score: ${computer_score}\n`
+
+    let finalResult = ''
+    if (user_score > computer_score) {
+        finalResult = "You win! Congratulations"
+    } else if (computer_score > user_score) {
+        finalResult = "You lose! Better luck next time!"
+    } else {
+        finalResult = "It's a draw! No winners today!"
+    }
+                                
+    
+    finalResultContainer.textContent = finalResult
+
+
+}
+
 
 // PLAY ENTIRE GAME
 
