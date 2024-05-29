@@ -17,15 +17,30 @@ resultsContainer.appendChild(userComputerChoicePara)
 resultsContainer.appendChild(roundResultPara)
 resultsContainer.appendChild(userComputerScorePara)
 
-// IMPLEMENT FUNCTION FOR CHECK QUIT
+// REVISITING ROCK PAPER SCISSORS LESSON
 
-let isQuit = false
+let gameCounter = 0
 
-function checkQuit(user_input) {
-    if (user_input === 'quit') {
-        return true
-    } else {
-        return false
+const buttonsList = [rockBtn, paperBtn, scissorsBtn]
+const choiceNames = ['rock', 'paper', 'scissors']
+
+buttonsList.forEach((button, i) => {
+    button.setAttribute('name', choiceNames[i])
+    button.textContent = choiceNames[i]
+    buttonContainer.appendChild(button)
+    button.addEventListener('click', () => {
+        playSingleRound(choiceNames[i], getComputerChoice())
+        gameCounter++
+        console.log(gameCounter)
+    })
+    
+})
+
+// IMPLEMENT FUNCTION TO CHECK IF 5 GAMES HAVE BEEN PLAYED
+
+function checkGamesPlayed() {
+    if (gameCounter >= 5) {
+        return 'END'
     }
 }
 
@@ -58,10 +73,14 @@ let computer_score = 0
 
 function playSingleRound(user, computer) {
 
-    if (checkQuit(user) === true) {
-        console.log("Thank you for playing!")
-        console.log("Quitting game...")
-        isQuit = true
+    if (checkGamesPlayed() === 'END') {
+        buttonsList.forEach(button => {
+            button.removeEventListener('click', () => {
+                playSingleRound(choiceNames[i], getComputerChoice())
+                gameCounter++
+                console.log(gameCounter)
+            })
+        })
         return
     }
 
@@ -142,17 +161,4 @@ function playSingleRound(user, computer) {
 
 // playGame()
 
-// REVISITING ROCK PAPER SCISSORS LESSON
 
-const buttonsList = [rockBtn, paperBtn, scissorsBtn]
-const choiceNames = ['rock', 'paper', 'scissors']
-let currentChoice = ''
-
-buttonsList.forEach((button, i) => {
-    button.setAttribute('name', choiceNames[i])
-    button.textContent = choiceNames[i]
-    button.addEventListener('click', () => {
-        playSingleRound(choiceNames[i], getComputerChoice())
-    })
-    buttonContainer.appendChild(button)
-})
