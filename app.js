@@ -1,3 +1,12 @@
+// DECLARING VARIABLES FOR ELEMENT CONTAINERS
+
+const userComputerChoicePara = document.createElement('p')
+const userComputerScorePara = document.createElement('p')
+const roundResultPara = document.createElement('p')
+
+const buttonContainer = document.querySelector('#button-container')
+const resultsContainer = document.querySelector('#results')
+
 // IMPLEMENT FUNCTION FOR CHECK QUIT
 
 let isQuit = false
@@ -112,17 +121,17 @@ function playSingleRound(user, computer) {
         }
     }
 
-    console.log(`You chose: ${user}\nThe computer chose: ${computer}\n`)
+    userComputerChoicePara.textContent = `You chose: ${user}\nThe computer chose: ${computer}\n`
 
     if (outcome === 'win') {
-        console.log("You win!")
+        roundResultPara.textContent = 'You win!'
     } else if (outcome === 'lose') {
-        console.log("Computer wins!")
+        roundResultPara.textContent = 'Computer wins!'
     } else {
-        console.log("It's a draw!")
+        roundResultPara.textContent = "It's a draw!"
     }
 
-    console.log(`Your score: ${user_score}\nComputer score: ${computer_score}`)
+    userComputerScorePara.textContent = `Your score: ${user_score}\nComputer score: ${computer_score}`
 }
 
 // PLAY ENTIRE GAME
